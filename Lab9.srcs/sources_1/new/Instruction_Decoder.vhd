@@ -32,18 +32,19 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity Instruction_Decoder is
-    Port ( Instruction : in STD_LOGIC_VECTOR (11 downto 0);
-           Jump_Check : in STD_LOGIC_VECTOR (3 downto 0);
-           Clk : in STD_LOGIC;
-           Reg_Enable : out STD_LOGIC_VECTOR (2 downto 0);
-           Reg_Sel_A : out STD_LOGIC_VECTOR (2 downto 0);
-           Reg_Sel_B : out STD_LOGIC_VECTOR (2 downto 0);
-           PC_Enable : out STD_LOGIC;
-           Add_Sub_Sel : out STD_LOGIC;
-           Jump_Flag : out STD_LOGIC;
-           Jump_Address : out STD_LOGIC_VECTOR (2 downto 0);
-           Load_Sel : out STD_LOGIC;
-           Imm_Val : out STD_LOGIC_VECTOR (3 downto 0));
+    Port ( I_Instruction : in STD_LOGIC_VECTOR (11 downto 0);
+           I_Jump_Check : in STD_LOGIC_VECTOR (3 downto 0);
+           I_Clk : in STD_LOGIC;
+           I_Reset: in STD_LOGIC;
+           O_Reg_Enable : out STD_LOGIC_VECTOR (2 downto 0);
+           O_Reg_Sel_A : out STD_LOGIC_VECTOR (2 downto 0);
+           O_Reg_Sel_B : out STD_LOGIC_VECTOR (2 downto 0);
+           O_PC_Enable : out STD_LOGIC;
+           O_Add_Sub_Sel : out STD_LOGIC;
+           O_Jump_Flag : out STD_LOGIC;
+           O_Jump_Address : out STD_LOGIC_VECTOR (2 downto 0);
+           O_Load_Sel : out STD_LOGIC;
+           O_Imm_Val : out STD_LOGIC_VECTOR (3 downto 0));
 end Instruction_Decoder;
 
 architecture Behavioral of Instruction_Decoder is
