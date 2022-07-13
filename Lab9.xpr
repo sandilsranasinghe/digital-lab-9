@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="38" Path="D:/Vivado Labs done/Lab 9/digital-lab-9/Lab9.xpr">
+<Project Version="7" Minor="38" Path="C:/Users/sandi/Desktop/Work/uni/digital design/Lab9-git/digital-lab-9/Lab9.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="09b4f2e125eb4ee2913333a2bf1f2646"/>
@@ -134,6 +134,22 @@
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../../Lab 3 new/Lab 3 new.srcs/sources_1/new/HA.vhd"/>
           <Attr Name="ImportTime" Val="1653557360"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/low_components/Register_12_Bit.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/new/D_FF.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../Lab5/Lab5.srcs/sources_1/new/D_FF.vhd"/>
+          <Attr Name="ImportTime" Val="1655820570"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
