@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TB_Instruction_Decoder_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TB_Instruction_Decoder" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="319969743fs"></ZoomEndTime>
+      <Cursor1Time time="1000000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="112"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="16" />
+   <wvobject fp_name="/TB_Instruction_Decoder/i_instruction" type="array">
+      <obj_property name="ElementShortName">i_instruction[11:0]</obj_property>
+      <obj_property name="ObjectShortName">i_instruction[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Instruction_Decoder/i_jump_check" type="array">
+      <obj_property name="ElementShortName">i_jump_check[3:0]</obj_property>
+      <obj_property name="ObjectShortName">i_jump_check[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Instruction_Decoder/o_imm_val" type="array">
+      <obj_property name="ElementShortName">o_imm_val[3:0]</obj_property>
+      <obj_property name="ObjectShortName">o_imm_val[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Instruction_Decoder/Clk" type="logic">
+      <obj_property name="ElementShortName">Clk</obj_property>
+      <obj_property name="ObjectShortName">Clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Instruction_Decoder/i_reset" type="logic">
+      <obj_property name="ElementShortName">i_reset</obj_property>
+      <obj_property name="ObjectShortName">i_reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Instruction_Decoder/o_en_pc" type="logic">
+      <obj_property name="ElementShortName">o_en_pc</obj_property>
+      <obj_property name="ObjectShortName">o_en_pc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Instruction_Decoder/o_en_store" type="logic">
+      <obj_property name="ElementShortName">o_en_store</obj_property>
+      <obj_property name="ObjectShortName">o_en_store</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Instruction_Decoder/o_add_sub_sel" type="logic">
+      <obj_property name="ElementShortName">o_add_sub_sel</obj_property>
+      <obj_property name="ObjectShortName">o_add_sub_sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Instruction_Decoder/o_jump_flag" type="logic">
+      <obj_property name="ElementShortName">o_jump_flag</obj_property>
+      <obj_property name="ObjectShortName">o_jump_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Instruction_Decoder/o_load_sel" type="logic">
+      <obj_property name="ElementShortName">o_load_sel</obj_property>
+      <obj_property name="ObjectShortName">o_load_sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Instruction_Decoder/o_reg_enable" type="array">
+      <obj_property name="ElementShortName">o_reg_enable[2:0]</obj_property>
+      <obj_property name="ObjectShortName">o_reg_enable[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Instruction_Decoder/o_reg_sel_a" type="array">
+      <obj_property name="ElementShortName">o_reg_sel_a[2:0]</obj_property>
+      <obj_property name="ObjectShortName">o_reg_sel_a[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Instruction_Decoder/o_reg_sel_b" type="array">
+      <obj_property name="ElementShortName">o_reg_sel_b[2:0]</obj_property>
+      <obj_property name="ObjectShortName">o_reg_sel_b[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Instruction_Decoder/o_jump_addr" type="array">
+      <obj_property name="ElementShortName">o_jump_addr[2:0]</obj_property>
+      <obj_property name="ObjectShortName">o_jump_addr[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Instruction_Decoder/UUT/Instruction_Register/I_Enable" type="logic">
+      <obj_property name="ElementShortName">I_Enable</obj_property>
+      <obj_property name="ObjectShortName">I_Enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Instruction_Decoder/UUT/Instruction_Register/O_Q" type="array">
+      <obj_property name="ElementShortName">O_Q[11:0]</obj_property>
+      <obj_property name="ObjectShortName">O_Q[11:0]</obj_property>
+   </wvobject>
+</wave_config>
