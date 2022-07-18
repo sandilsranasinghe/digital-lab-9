@@ -40,23 +40,20 @@ component MUX_2_3
     Port ( I_Adder_3 : in STD_LOGIC_VECTOR (2 downto 0);
         I_Jump_Addr : in STD_LOGIC_VECTOR (2 downto 0);
         I_Jump_Flag : in STD_LOGIC;
-        EN : in STD_LOGIC;
         O_MUX_2_3 : out STD_LOGIC_VECTOR (2 downto 0));
 end component;
 signal adder_3,jump_adder,output:std_logic_vector(2 downto 0);
-signal jump_flag,en:std_logic;
+signal jump_flag:std_logic;
 begin
 UUT:MUX_2_3
     PORT MAP(
         I_Adder_3=>adder_3,
         I_Jump_Addr=>jump_adder,
         I_Jump_Flag=>jump_flag,
-        EN=>en,
         O_MUX_2_3=>output       
     );
     process
     begin
-        en<='1';
         adder_3<="101";
         jump_adder<="001";
         jump_flag<='0';
