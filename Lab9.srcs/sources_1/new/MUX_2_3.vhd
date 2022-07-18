@@ -32,16 +32,19 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity MUX_2_3 is
-    Port ( A_In : in STD_LOGIC_VECTOR (2 downto 0);
-           B_In : in STD_LOGIC_VECTOR (2 downto 0);
-           Sel : in STD_LOGIC;
+    Port ( I_Adder_3 : in STD_LOGIC_VECTOR (2 downto 0);
+           I_Jump_Addr : in STD_LOGIC_VECTOR (2 downto 0);
+           I_Jump_Flag : in STD_LOGIC;
            EN : in STD_LOGIC;
-           Y_Out : out STD_LOGIC_VECTOR (2 downto 0));
+           O_MUX_2_3 : out STD_LOGIC_VECTOR (2 downto 0));
 end MUX_2_3;
 
 architecture Behavioral of MUX_2_3 is
-
+--when jump flag is 0 output is jump adder
+--when jum flag is 1 output is output from 3 bit adder
 begin
-
+O_MUX_2_3(0)<=En AND ((NOT(I_Jump_Flag) AND I_Jump_Addr(0)) OR (I_Jump_Flag AND I_Adder_3(0)));
+O_MUX_2_3(1)<=En AND ((NOT(I_Jump_Flag) AND I_Jump_Addr(1)) OR (I_Jump_Flag AND I_Adder_3(1)));
+O_MUX_2_3(2)<=En AND ((NOT(I_Jump_Flag) AND I_Jump_Addr(2)) OR (I_Jump_Flag AND I_Adder_3(2)));
 
 end Behavioral;

@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="38" Path="C:/Users/sandi/Desktop/Work/uni/digital design/Lab9-git/digital-lab-9/Lab9.xpr">
+<Project Version="7" Minor="38" Path="D:/Vivado Labs done/Lab 9 Git/digital-lab-9/Lab9.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="09b4f2e125eb4ee2913333a2bf1f2646"/>
@@ -189,6 +189,12 @@
       </File>
       <File Path="$PPRDIR/TB_Instruction_Decoder_behav.wcfg">
         <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sim_1/new/TB_MUX_2_3.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
