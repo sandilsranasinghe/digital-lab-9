@@ -32,16 +32,18 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity MUX_2_4 is
-    Port ( A_In : in STD_LOGIC_VECTOR (3 downto 0);
-           B_In : in STD_LOGIC_VECTOR (3 downto 0);
-           Sel : in STD_LOGIC;
-           EN : in STD_LOGIC;
-           Y_Out : out STD_LOGIC_VECTOR (3 downto 0));
+    Port ( I_Imm_Val : in STD_LOGIC_VECTOR (3 downto 0);
+            I_Adder_4 : in STD_LOGIC_VECTOR (3 downto 0);
+            I_Load_Sel : in STD_LOGIC;
+            O_MUX_2_3 : out STD_LOGIC_VECTOR (3 downto 0));
 end MUX_2_4;
-
+--when load select is 0 output value
+--when load select is 1 output the output of 4 bit adder
 architecture Behavioral of MUX_2_4 is
 
 begin
-
-
+O_MUX_2_3(0)<=(NOT (I_Load_Sel) AND I_Imm_Val(0)) OR (I_Load_Sel AND I_Adder_4(0));
+O_MUX_2_3(1)<=(NOT (I_Load_Sel) AND I_Imm_Val(1)) OR (I_Load_Sel AND I_Adder_4(1));
+O_MUX_2_3(2)<=(NOT (I_Load_Sel) AND I_Imm_Val(2)) OR (I_Load_Sel AND I_Adder_4(2));
+O_MUX_2_3(3)<=(NOT (I_Load_Sel) AND I_Imm_Val(3)) OR (I_Load_Sel AND I_Adder_4(3));
 end Behavioral;
