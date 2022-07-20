@@ -37,11 +37,11 @@ end TB_Program_Counter;
 
 architecture Behavioral of TB_Program_Counter is
 component Program_Counter
-    Port ( Res : in STD_LOGIC;
-       Clk : in STD_LOGIC;
-       EN: in STD_LOGIC;
-       A_In : in STD_LOGIC_VECTOR (2 downto 0);
-       Y_Out : out STD_LOGIC_VECTOR (2 downto 0));
+    Port ( I_Res : in STD_LOGIC;
+       I_Clk : in STD_LOGIC;
+       I_EN_PC: in STD_LOGIC;
+       I_A_In : in STD_LOGIC_VECTOR (2 downto 0);
+       O_Mem_Sel : out STD_LOGIC_VECTOR (2 downto 0));
 end component;
 signal Clk: STD_LOGIC:='0';
 signal EN,Res: STD_LOGIC;
@@ -49,11 +49,11 @@ signal A_In, Y_Out: STD_LOGIC_VECTOR (2 downto 0);
 begin
 UUT: Program_Counter
     PORT MAP(
-    Res => Res,
-    Clk => Clk,
-    EN => EN,
-    A_In => A_In,
-    Y_Out => Y_Out
+    I_Res => Res,
+    I_Clk => Clk,
+    I_EN_PC => EN,
+    I_A_In => A_In,
+    O_Mem_Sel => Y_Out
     );
     
     process

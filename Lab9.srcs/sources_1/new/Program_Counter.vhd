@@ -32,11 +32,11 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity Program_Counter is
-    Port ( Res : in STD_LOGIC;
-           Clk : in STD_LOGIC;
-           EN: in STD_LOGIC;
-           A_In : in STD_LOGIC_VECTOR (2 downto 0);
-           Y_Out : out STD_LOGIC_VECTOR (2 downto 0));
+    Port ( I_Res : in STD_LOGIC;
+           I_Clk : in STD_LOGIC;
+           I_EN_PC: in STD_LOGIC;
+           I_A_In : in STD_LOGIC_VECTOR (2 downto 0);
+           O_Mem_Sel : out STD_LOGIC_VECTOR (2 downto 0));
 end Program_Counter;
 
 architecture Behavioral of Program_Counter is
@@ -48,26 +48,15 @@ architecture Behavioral of Program_Counter is
                 Qbar : out STD_LOGIC);
     end component;
 
-    component Slow_Clk
-        Port ( Clk_in : in STD_LOGIC;
-                Clk_out : out STD_LOGIC);
-    end component;
-
     signal D0,D1,D2 : STD_LOGIC;
-    signal Clk_slow : STD_LOGIC;
     signal yout : STD_LOGIC_VECTOR (2 downto 0);
 begin
-    Slow_Clk0 : Slow_Clk
-    PORT MAP(
-        Clk_in => Clk,
-        Clk_out => Clk_slow
-        );
-        
+
     D_FF_0 : D_FF
     PORT MAP(
         D => D0,
-        Res => Res,
-        Clk => Clk_slow,
+        Res => I_Res,
+        Clk => I_Clk,
         Q =>yout(0)
         );     
         
@@ -75,31 +64,31 @@ begin
     D_FF_1 : D_FF
         PORT MAP(
             D => D1,
-            Res => Res,
-            Clk => Clk_slow,
+            Res => I_Res,
+            Clk => I_Clk,
             Q =>yout(1)
             );     
     D_FF_2 : D_FF
             PORT MAP(
                 D => D2,
-                Res => Res,
-                Clk => Clk_slow,
+                Res => I_Res,
+                Clk => I_Clk,
                 Q =>yout(2)
                 );     
-process(Clk)
+process(I_Clk)
     begin   
-    if (EN='1') then 
-        if(rising_edge(Clk)) then
+    if (I_EN_PC='1') then 
+        if(rising_edge(I_Clk)) then
             
-            if Res = '1' then
-            Y_Out <= "000";
+            if I_Res = '1' then
+            O_Mem_Sel <= "000";
             
             else    
-            D0 <= A_In(0);
-            D1 <=  A_In(1);
-            D2 <= A_In(2);            
-
-            Y_Out <= yout;
+            D0 <= I_A_In(0);
+            D1 <=  I_A_In(1);
+            D2 <= I_A_In(2);            
+            
+            O_Mem_Sel <= yout;
          
             end if;  
         end if;   
