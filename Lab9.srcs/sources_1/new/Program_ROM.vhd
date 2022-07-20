@@ -32,8 +32,8 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity Program_ROM is
-    Port ( Mem_Sel : in STD_LOGIC_VECTOR (2 downto 0);
-           Instruction : out STD_LOGIC_VECTOR (11 downto 0));
+    Port ( I_Mem_Sel : in STD_LOGIC_VECTOR (2 downto 0);
+           O_Instruction : out STD_LOGIC_VECTOR (11 downto 0));
 end Program_ROM;
 
 architecture Behavioral of Program_ROM is
@@ -53,6 +53,6 @@ type rom_type is array (0 to 7) of std_logic_vector(11 downto 0);
 
 begin
 
-Instruction <= sevenSegment_ROM(to_integer(unsigned(Mem_Sel)));
+O_Instruction <= sevenSegment_ROM(to_integer(unsigned(I_Mem_Sel)));
 
 end Behavioral;
