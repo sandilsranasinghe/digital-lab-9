@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 07/11/2022 04:57:47 AM
+-- Create Date: 20.07.2022 23:20:10
 -- Design Name: 
--- Module Name: Add_Sub_4 - Behavioral
+-- Module Name: TB_4_bit_add_sub - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,46 +31,53 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity Add_Sub_4 is
-    Port ( A_In : in STD_LOGIC_VECTOR (3 downto 0);
+entity TB_4_bit_add_sub is
+--  Port ( );
+end TB_4_bit_add_sub;
+
+architecture Behavioral of TB_4_bit_add_sub is
+component Add_Sub_4
+ Port ( A_In : in STD_LOGIC_VECTOR (3 downto 0);
            B_In : in STD_LOGIC_VECTOR (3 downto 0);
            Add_Sub_Sel : in STD_LOGIC;
            S_Out : out STD_LOGIC_VECTOR (3 downto 0);
            Overflow : out STD_LOGIC;
            Zero : out STD_LOGIC);
-end Add_Sub_4;
-
-architecture Behavioral of Add_Sub_4 is
-component RCA_4
-port (
-       A : in STD_LOGIC_VECTOR(3 downto 0);
-       B : in STD_LOGIC_VECTOR(3 downto 0);
-       C_in : in STD_LOGIC;
-       S : out STD_LOGIC_VECTOR(3 downto 0);
-       C_out : out STD_LOGIC);
 end component;
-
-signal a,s: STD_LOGIC_VECTOR(3 downto 0);
-
+signal a,b,s:STD_LOGIC_VECTOR (3 downto 0);
+signal sel,o,z:STD_LOGIC;
 begin
-
---A=> input no1 to add or no to get the 2s complement--> add_sub_sel(0 add,1 neg)
---B=> input no2 to add or 0000
-
-a(0)<=A_In(0) XOR Add_Sub_Sel;
-a(1)<=A_In(1) XOR Add_Sub_Sel;
-a(2)<=A_In(2) XOR Add_Sub_Sel;
-a(3)<=A_In(3) XOR Add_Sub_Sel;
-
-RCA_4_0: RCA_4
+UUT:Add_Sub_4
 port map(
-A=>a,
-B=>B_In,
-C_in=>Add_Sub_Sel,
-S=>s,
-C_out=>Overflow);
+   A_In=>a,
+   B_In=>b,
+   Add_Sub_Sel=>sel, 
+   S_Out=>s, 
+   Overflow=>o, 
+   Zero=>z
+   );
 
-Zero <= not(s(0) or s(1) or s(2) or s(3));
-S_Out<=s;
+process
+begin
+sel<='0';
+a<="0001";
+b<="0101";
+wait for 100ns;
+
+sel<='0';
+a<="1111";
+b<="0001";
+wait for 100ns;
+
+sel<='1';
+a<="0001";
+b<="0000";
+wait for 100ns;
+
+sel<='1';
+a<="0100";
+b<="0000";
+wait for 100ns;
+end process;
 
 end Behavioral;
