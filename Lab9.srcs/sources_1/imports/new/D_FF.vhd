@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 07/11/2022 04:40:47 AM
+-- Create Date: 06/21/2022 07:36:33 PM
 -- Design Name: 
--- Module Name: MUX_2_3 - Behavioral
+-- Module Name: D_FF - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,19 +31,27 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity MUX_2_3 is
-    Port ( I_Adder_3 : in STD_LOGIC_VECTOR (2 downto 0);
-           I_Jump_Addr : in STD_LOGIC_VECTOR (2 downto 0);
-           I_Jump_Flag : in STD_LOGIC;
-           O_MUX_2_3 : out STD_LOGIC_VECTOR (2 downto 0));
-end MUX_2_3;
+entity D_FF is
+    Port ( D : in STD_LOGIC;
+           Res : in STD_LOGIC;
+           Clk : in STD_LOGIC;
+           Q : out STD_LOGIC;
+           Qbar : out STD_LOGIC);
+end D_FF;
 
-architecture Behavioral of MUX_2_3 is
---when jump flag is 0 output is jump adder
---when jum flag is 1 output is output from 3 bit adder
+architecture Behavioral of D_FF is
+
 begin
-O_MUX_2_3(0)<=(NOT(I_Jump_Flag) AND I_Jump_Addr(0)) OR (I_Jump_Flag AND I_Adder_3(0));
-O_MUX_2_3(1)<=(NOT(I_Jump_Flag) AND I_Jump_Addr(1)) OR (I_Jump_Flag AND I_Adder_3(1));
-O_MUX_2_3(2)<=(NOT(I_Jump_Flag) AND I_Jump_Addr(2)) OR (I_Jump_Flag AND I_Adder_3(2));
+    process (Clk) begin
+        if (rising_edge(Clk)) then
+            if Res = '1' then
+                Q <= '0';
+                Qbar <= '1';
+            else
+                Q <= D;
+                Qbar <= not D;
+            end if;
+        end if;
+    end process;
 
 end Behavioral;

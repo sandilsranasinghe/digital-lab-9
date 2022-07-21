@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 07/11/2022 04:40:47 AM
+-- Create Date: 07/13/2022 10:55:49 AM
 -- Design Name: 
--- Module Name: MUX_2_3 - Behavioral
+-- Module Name: Register_12_Bit - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,19 +31,24 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity MUX_2_3 is
-    Port ( I_Adder_3 : in STD_LOGIC_VECTOR (2 downto 0);
-           I_Jump_Addr : in STD_LOGIC_VECTOR (2 downto 0);
-           I_Jump_Flag : in STD_LOGIC;
-           O_MUX_2_3 : out STD_LOGIC_VECTOR (2 downto 0));
-end MUX_2_3;
+entity Register_12_Bit is
+    Port ( I_Data : in STD_LOGIC_VECTOR (11 downto 0);
+           I_Enable : in STD_LOGIC;
+           I_Clk : in STD_LOGIC;
+           O_Q : out STD_LOGIC_VECTOR (11 downto 0));
+end Register_12_Bit;
 
-architecture Behavioral of MUX_2_3 is
---when jump flag is 0 output is jump adder
---when jum flag is 1 output is output from 3 bit adder
+architecture Behavioral of Register_12_Bit is
+
 begin
-O_MUX_2_3(0)<=(NOT(I_Jump_Flag) AND I_Jump_Addr(0)) OR (I_Jump_Flag AND I_Adder_3(0));
-O_MUX_2_3(1)<=(NOT(I_Jump_Flag) AND I_Jump_Addr(1)) OR (I_Jump_Flag AND I_Adder_3(1));
-O_MUX_2_3(2)<=(NOT(I_Jump_Flag) AND I_Jump_Addr(2)) OR (I_Jump_Flag AND I_Adder_3(2));
+
+    process (I_Clk) begin
+        if (rising_edge(I_Clk)) then
+            if I_Enable = '1' then
+                O_Q <= I_Data;
+            end if;
+        end if ;
+    end process;
+
 
 end Behavioral;
