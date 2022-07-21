@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 07/11/2022 04:28:34 AM
+-- Create Date: 05/26/2022 03:35:47 PM
 -- Design Name: 
--- Module Name: Adder_3 - Behavioral
+-- Module Name: FA - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,45 +31,37 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity Adder_3 is
-    Port ( A_In : in STD_LOGIC_VECTOR (2 downto 0);
-           B_In : in STD_LOGIC_VECTOR (2 downto 0);
-           S_Out : out STD_LOGIC_VECTOR (2 downto 0));
-end Adder_3;
+entity FA is
+    Port ( A : in STD_LOGIC;
+           B : in STD_LOGIC;
+           C_IN : in STD_LOGIC;
+           S : out STD_LOGIC;
+           C_OUT : out STD_LOGIC);
+end FA;
 
-architecture Behavioral of Adder_3 is
-component FA
+architecture Behavioral of FA is
+component HA
 port (
 A: in std_logic;
 B: in std_logic;
-C_in: in std_logic;
 S: out std_logic;
-C_out: out std_logic);
+C: out std_logic);
 end component;
-signal FA_C:STD_LOGIC_VECTOR(2 downto 0);
+SIGNAL HA0_S, HA0_C, HA1_S, HA1_C : std_logic;
 begin
-FA_0 : FA
+HA_0 : HA
 port map (
-A => A_In(0),
-B => B_In(0),
-C_in => '0', -- Set to ground
-S => S_Out(0),
-C_Out => FA_C(0));
-
-FA_1 : FA
+A => A,
+B => B,
+S => HA0_S,
+C => HA0_C);
+HA_1 : HA
 port map (
-A => A_In(1),
-B => B_In(1),
-C_in => FA_C(0),
-S => S_Out(1),
-C_Out => FA_C(1));
+A => HA0_S,
+B => C_in,
+S => HA1_S,
+C => HA1_C);
 
-FA_2 : FA
-port map (
-A => A_In(2),
-B => B_In(2),
-C_in => FA_C(1),
-S => S_Out(2),
-C_Out => FA_C(2));
-
+C_OUT<=HA0_C OR HA1_C;
+S <= HA1_S;
 end Behavioral;
