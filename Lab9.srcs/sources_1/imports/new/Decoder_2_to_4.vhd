@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 07/11/2022 05:17:49 AM
+-- Create Date: 06/16/2022 01:08:02 PM
 -- Design Name: 
--- Module Name: Reg_Bank - Behavioral
+-- Module Name: Decoder_2_to_4 - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,22 +31,18 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity Reg_Bank is
-    Port ( Clk : in STD_LOGIC;
-           Reg_Enable : in STD_LOGIC_VECTOR (2 downto 0);
-           Data_In : in STD_LOGIC_VECTOR (3 downto 0);
-           Data_Out : out STD_LOGIC_VECTOR (31 downto 0));
-end Reg_Bank;
-
-
-architecture Behavioral of Reg_Bank is
-
-component Decoder_3_to_8 
-    Port ( I : in STD_LOGIC_VECTOR (2 downto 0);
+entity Decoder_2_to_4 is
+    Port ( I : in STD_LOGIC_VECTOR (1 downto 0);
            EN : in STD_LOGIC;
-           Y : out STD_LOGIC_VECTOR (7 downto 0));
-end component;
+           Y : out STD_LOGIC_VECTOR (3 downto 0));
+end Decoder_2_to_4;
+
+architecture Behavioral of Decoder_2_to_4 is
 
 begin
+Y(0) <= NOT(I(0))and NOT(I(1)) AND EN;
+Y(1) <= I(0) AND NOT(I(1)) AND EN;
+Y(2) <= NOT(I(0)) AND I(1) AND EN;
+Y(3) <= I(0) AND I(1) AND EN;
 
 end Behavioral;

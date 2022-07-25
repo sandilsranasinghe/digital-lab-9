@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 07/11/2022 05:17:49 AM
+-- Create Date: 06/16/2022 09:00:53 PM
 -- Design Name: 
--- Module Name: Reg_Bank - Behavioral
+-- Module Name: Decoder_3_to_8 - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,22 +31,43 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity Reg_Bank is
-    Port ( Clk : in STD_LOGIC;
-           Reg_Enable : in STD_LOGIC_VECTOR (2 downto 0);
-           Data_In : in STD_LOGIC_VECTOR (3 downto 0);
-           Data_Out : out STD_LOGIC_VECTOR (31 downto 0));
-end Reg_Bank;
-
-
-architecture Behavioral of Reg_Bank is
-
-component Decoder_3_to_8 
+entity Decoder_3_to_8 is
     Port ( I : in STD_LOGIC_VECTOR (2 downto 0);
            EN : in STD_LOGIC;
            Y : out STD_LOGIC_VECTOR (7 downto 0));
-end component;
+end Decoder_3_to_8;
 
+architecture Behavioral of Decoder_3_to_8 is
+
+component Decoder_2_to_4
+    Port ( I : in STD_LOGIC_VECTOR (1 downto 0);
+           EN : in STD_LOGIC;
+           Y : out STD_LOGIC_VECTOR (3 downto 0));
+end component;
+signal I0, I1,I2, EN0, EN1: STD_LOGIC;
 begin
+
+Decoder_2_to_4_0: Decoder_2_to_4
+Port map(
+    I(0)=> I0,
+    I(1) => I1,
+    EN => EN0,
+    Y => Y(3 downto 0)
+); 
+
+Decoder_2_to_4_1: Decoder_2_to_4
+Port map(
+    I(0)=> I0,
+    I(1) => I1,
+    EN => EN1,
+    Y => Y(7 downto 4)
+);
+
+I0 <= I(0);
+I1 <= I(1);
+EN0 <= NOT(I(2));
+EN1 <= I(2);
+
+
 
 end Behavioral;

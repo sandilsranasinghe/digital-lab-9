@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="38" Path="C:/Users/sandi/Desktop/Work/uni/digital design/Lab9-git/digital-lab-9/Lab9.xpr">
+<Project Version="7" Minor="38" Path="C:/Users/eshan/OneDrive/Documents/digital-lab-9/Lab9.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="09b4f2e125eb4ee2913333a2bf1f2646"/>
@@ -159,6 +159,22 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/Program_ROM.vhd">
         <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/new/Decoder_3_to_8.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../lab4/lab4.srcs/sources_1/new/Decoder_3_to_8.vhd"/>
+          <Attr Name="ImportTime" Val="1655394357"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/new/Decoder_2_to_4.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../lab4/lab4.srcs/sources_1/new/Decoder_2_to_4.vhd"/>
+          <Attr Name="ImportTime" Val="1655395073"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
