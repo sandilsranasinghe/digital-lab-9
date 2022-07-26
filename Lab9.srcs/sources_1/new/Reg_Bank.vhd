@@ -60,20 +60,24 @@ signal En : STD_LOGIC; --Not sure
 
 begin
 
+
+
 Decoder_3_to_8_0 : Decoder_3_to_8
     port map(
     I => I_Reg_Enable, --Not sure
-    EN => En, --Not sure
+    EN => I_Clk, --Not sure
     Y => Reg_sel
     );
+ 
     
- Reg_0 : Reg
-    port map(
-              D => I_Data_In,
-              En => Reg_Sel(0),
-              Clk => I_Clk,
-              Q => O_Data_Out(31 downto 28)
-    ); --need to hardcode to store all 0s
+O_Data_Out(31 downto 28) <= "0000";
+-- Reg_0 : Reg
+--    port map(
+--              D => I_Data_In,
+--              En => Reg_Sel(0),
+--              Clk => I_Clk,
+--              Q => O_Data_Out(31 downto 28)
+--    ); --need to hardcode to store all 0s
  Reg_1 : Reg
     port map(
               D => I_Data_In,
