@@ -11,14 +11,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1000000001fs"></ZoomEndTime>
-      <Cursor1Time time="156562000fs"></Cursor1Time>
+      <ZoomEndTime time="1196374624fs"></ZoomEndTime>
+      <Cursor1Time time="652000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="131"></NameColumnWidth>
+      <NameColumnWidth column_width="127"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="68" />
+   <WVObjectSize size="66" />
    <wvobject fp_name="/TB_nanoprocessor/S_Clk" type="logic">
       <obj_property name="ElementShortName">S_Clk</obj_property>
       <obj_property name="ObjectShortName">S_Clk</obj_property>
@@ -62,7 +62,6 @@
    <wvobject fp_name="/TB_nanoprocessor/UUT/Reg_Bank_0/O_Data_Out" type="array">
       <obj_property name="ElementShortName">O_Data_Out[31:0]</obj_property>
       <obj_property name="ObjectShortName">O_Data_Out[31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/TB_nanoprocessor/UUT/Reg_Bank_0/Reg_Sel" type="array">
       <obj_property name="ElementShortName">Reg_Sel[7:0]</obj_property>
@@ -75,7 +74,6 @@
    <wvobject fp_name="/TB_nanoprocessor/UUT/Instruction_Decoder_0/I_Instruction" type="array">
       <obj_property name="ElementShortName">I_Instruction[11:0]</obj_property>
       <obj_property name="ObjectShortName">I_Instruction[11:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/TB_nanoprocessor/UUT/Instruction_Decoder_0/I_Jump_Check" type="array">
       <obj_property name="ElementShortName">I_Jump_Check[3:0]</obj_property>
@@ -160,23 +158,6 @@
    <wvobject fp_name="/TB_nanoprocessor/UUT/Program_Counter_0/O_Mem_Sel" type="array">
       <obj_property name="ElementShortName">O_Mem_Sel[2:0]</obj_property>
       <obj_property name="ObjectShortName">O_Mem_Sel[2:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_nanoprocessor/UUT/Program_Counter_0/D0" type="logic">
-      <obj_property name="ElementShortName">D0</obj_property>
-      <obj_property name="ObjectShortName">D0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_nanoprocessor/UUT/Program_Counter_0/D1" type="logic">
-      <obj_property name="ElementShortName">D1</obj_property>
-      <obj_property name="ObjectShortName">D1</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_nanoprocessor/UUT/Program_Counter_0/D2" type="logic">
-      <obj_property name="ElementShortName">D2</obj_property>
-      <obj_property name="ObjectShortName">D2</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_nanoprocessor/UUT/Program_Counter_0/yout" type="array">
-      <obj_property name="ElementShortName">yout[2:0]</obj_property>
-      <obj_property name="ObjectShortName">yout[2:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/TB_nanoprocessor/UUT/Adder_3_0/I_A" type="array">
@@ -304,5 +285,13 @@
    <wvobject fp_name="/TB_nanoprocessor/UUT/MUX_2_4_0/O_MUX_2_4" type="array">
       <obj_property name="ElementShortName">O_MUX_2_4[3:0]</obj_property>
       <obj_property name="ObjectShortName">O_MUX_2_4[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Led_Anode" type="array">
+      <obj_property name="ElementShortName">Led_Anode[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Led_Anode[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Led_Out" type="array">
+      <obj_property name="ElementShortName">Led_Out[6:0]</obj_property>
+      <obj_property name="ObjectShortName">Led_Out[6:0]</obj_property>
    </wvobject>
 </wave_config>

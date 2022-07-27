@@ -36,7 +36,11 @@ entity Nanoprocessor is
            Res : in STD_LOGIC;
            Overflow_led : out STD_LOGIC;
            Zero_led : out STD_LOGIC;
-           Reg_1:out std_logic_vector(3 downto 0));
+           Reg_1 : out std_logic_vector(3 downto 0);
+           Seg7_Anode : out STD_LOGIC_VECTOR(3 downto 0);
+           Seg7_Out : out STD_LOGIC_VECTOR(6 downto 0)
+           );
+           
 end Nanoprocessor;
 
 architecture Behavioral of Nanoprocessor is
@@ -128,6 +132,12 @@ component MUX_2_3
            );
 end component;
 
+component LUT_16_7
+    Port ( I_address : in STD_LOGIC_VECTOR (3 downto 0);
+             O_data : out STD_LOGIC_VECTOR (6 downto 0)
+    );
+end component;
+
 signal EN_PC, Add_Sub_Sel, jmpflg, Load_Sel, EN_Store,S_Clk: STD_LOGIC;
 signal Data_Out : STD_LOGIC_VECTOR(31 downto 0);
 signal Mem_Sel, Mux_2_3_out,Reg_Sel_A, Reg_Sel_B,jmpaddr: STD_LOGIC_VECTOR(2 downto 0);
@@ -138,6 +148,8 @@ signal Data_In : STD_LOGIC_VECTOR(3 downto 0);
 signal Reg_Enable : STD_LOGIC_VECTOR(2 downto 0);
 signal Instruction : STD_LOGIC_VECTOR(11 downto 0);
 signal bit_3_out : STD_LOGIC_VECTOR(2 downto 0);
+signal led_address : STD_LOGIC_VECTOR (3 downto 0);
+signal led_data : STD_LOGIC_VECTOR (6 downto 0);
 
 begin
 Slow_Clk_0:Slow_Clk
@@ -241,6 +253,17 @@ MUX_2_3_0 : MUX_2_3
            I_Jump_Flag => jmpflg, 
            O_MUX_2_3 => Mux_2_3_out  
            );
+           
+ LUT_16_7_0 : LUT_16_7
+    port map(
+            I_address => led_address,
+            O_data => Seg7_Out
+            );
 
 Reg_1<=Data_Out(27 downto 24);
+
+led_address <= Data_Out(27 downto 24);
+
+Seg7_Anode <= "1110";
+
 end Behavioral;

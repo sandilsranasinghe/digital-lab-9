@@ -42,7 +42,9 @@ component Nanoprocessor
                Res : in STD_LOGIC;
                Overflow_led : out STD_LOGIC;
                Zero_led : out STD_LOGIC;
-               Reg_1:out std_logic_vector(3 downto 0)
+               Reg_1:out std_logic_vector(3 downto 0);
+               Led_Anode : out STD_LOGIC_VECTOR(3 downto 0);
+               Led_Out : out STD_LOGIC_VECTOR(6 downto 0)
               );
     end component;
 
