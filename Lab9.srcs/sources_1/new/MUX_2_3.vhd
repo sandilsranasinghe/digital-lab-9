@@ -44,7 +44,7 @@ architecture Behavioral of MUX_2_3 is
 begin
     process(I_Jump_Flag) is
     begin
-        if I_Jump_Flag='1' then
+        if I_Jump_Flag='0' then
             O_MUX_2_3<=I_Adder_3;
         else
             O_MUX_2_3<=I_Jump_Addr;
