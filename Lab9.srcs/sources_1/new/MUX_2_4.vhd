@@ -42,12 +42,8 @@ end MUX_2_4;
 architecture Behavioral of MUX_2_4 is
 
 begin
-    process(I_Load_Sel) is
-    begin
-    if I_Load_Sel='0' then
-        O_MUX_2_4<=I_Imm_Val;
-    else
-        O_MUX_2_4<=I_Adder_4;
-    end if;
-    end process;
+    O_MUX_2_4(0) <= (NOT(I_Load_Sel) AND I_Imm_Val(0)) OR (I_Load_Sel AND I_Adder_4(0));
+    O_MUX_2_4(1) <= (NOT(I_Load_Sel) AND I_Imm_Val(1)) OR (I_Load_Sel AND I_Adder_4(1));
+    O_MUX_2_4(2) <= (NOT(I_Load_Sel) AND I_Imm_Val(2)) OR (I_Load_Sel AND I_Adder_4(2));
+    O_MUX_2_4(3) <= (NOT(I_Load_Sel) AND I_Imm_Val(3)) OR (I_Load_Sel AND I_Adder_4(3));
 end Behavioral;
