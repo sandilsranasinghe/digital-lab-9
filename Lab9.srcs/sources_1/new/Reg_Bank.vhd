@@ -53,6 +53,7 @@ component Reg
     Port ( D : in STD_LOGIC_VECTOR (3 downto 0);
            En : in STD_LOGIC;
            En_Store : in STD_LOGIC;
+           Res : in STD_LOGIC;
            Clk : in STD_LOGIC;
            Q : out STD_LOGIC_VECTOR (3 downto 0));
 end component;
@@ -82,6 +83,7 @@ O_Data_Out(31 downto 28) <= "0000";
               D => I_Data_In,
               En => Reg_Sel(1),
               En_Store => I_EN_Store,
+              Res => I_Reset,
               Clk => I_Clk,
               Q => O_Data_Out(27 downto 24)
         );  
@@ -90,6 +92,7 @@ O_Data_Out(31 downto 28) <= "0000";
                  D => I_Data_In,
                  En => Reg_Sel(2),
                  En_Store => I_EN_Store,
+                 Res => I_Reset,
                  Clk => I_Clk,
                  Q => O_Data_Out(23 downto 20)
        );
@@ -98,6 +101,7 @@ O_Data_Out(31 downto 28) <= "0000";
                 D => I_Data_In,
                 En => Reg_Sel(3),
                 En_Store => I_EN_Store,
+                Res => I_Reset,
                 Clk => I_Clk,
                 Q => O_Data_Out(19 downto 16)
       );  
@@ -106,6 +110,7 @@ O_Data_Out(31 downto 28) <= "0000";
               D => I_Data_In,
               En => Reg_Sel(4),
               En_Store => I_EN_Store,
+              Res => I_Reset,
               Clk => I_Clk,
               Q => O_Data_Out(15 downto 12)
     );
@@ -114,6 +119,7 @@ Reg_5 : Reg
                 D => I_Data_In,
                 En => Reg_Sel(5),
                 En_Store => I_EN_Store,
+                Res => I_Reset,
                 Clk => I_Clk,
                 Q => O_Data_Out(11 downto 8)
       );
@@ -122,6 +128,7 @@ Reg_6 : Reg
               D => I_Data_In,
               En => Reg_Sel(6),
               En_Store => I_EN_Store,
+              Res => I_Reset,
               Clk => I_Clk,
               Q => O_Data_Out(7 downto 4)
         );
@@ -130,6 +137,7 @@ Reg_7 : Reg
                 D => I_Data_In,
                 En => Reg_Sel(7),
                 En_Store => I_EN_Store,
+                Res => I_Reset,
                 Clk => I_Clk,
                 Q => O_Data_Out(3 downto 0)
       );
