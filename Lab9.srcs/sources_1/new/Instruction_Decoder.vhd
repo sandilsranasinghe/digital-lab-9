@@ -109,7 +109,9 @@ begin
         NOT(I_Jump_Check(3)) AND
         NOT(I_Jump_Check(2)) AND
         NOT(I_Jump_Check(1)) AND
-        NOT(I_Jump_Check(0))
+        NOT(I_Jump_Check(0)) AND
+        instruction(11) AND
+        instruction(10)
     );
 
     -- this is set to 1 only for NEG operations
