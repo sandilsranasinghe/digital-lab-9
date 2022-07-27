@@ -47,24 +47,39 @@ end MUX_8_4;
 architecture Behavioral of MUX_8_4 is
 
 begin
-    process(I_Reg_Sel) is
-    begin
-        if I_Reg_Sel="000" then
-            O_MUX_8_4<=I_Data_0;
-        elsif I_Reg_Sel="001" then
-            O_MUX_8_4<=I_Data_1;
-        elsif I_Reg_Sel="010" then
-            O_MUX_8_4<=I_Data_2;
-        elsif I_Reg_Sel="011" then
-            O_MUX_8_4<=I_Data_3;
-        elsif I_Reg_Sel="100" then
-            O_MUX_8_4<=I_Data_4;
-        elsif I_Reg_Sel="101" then
-            O_MUX_8_4<=I_Data_5;
-        elsif I_Reg_Sel="110" then
-            O_MUX_8_4<=I_Data_6;
-        else
-            O_MUX_8_4<=I_Data_7;
-        end if;
-    end process;
+    O_MUX_8_4(0)<=(NOT(I_Reg_Sel(0))AND (NOT(I_Reg_Sel(1))) AND (NOT(I_Reg_Sel(2))) AND (I_Data_0(0)))  
+            OR((I_Reg_Sel(0))AND (NOT(I_Reg_Sel(1))) AND (NOT(I_Reg_Sel(2))) AND (I_Data_1(0))) 
+            OR(NOT(I_Reg_Sel(0))AND I_Reg_Sel(1) AND (NOT(I_Reg_Sel(2))) AND (I_Data_2(0))) 
+            OR((I_Reg_Sel(0))AND I_Reg_Sel(1) AND (NOT(I_Reg_Sel(2))) AND (I_Data_3(0)))  
+            OR((NOT(I_Reg_Sel(0)))AND (NOT(I_Reg_Sel(1))) AND (I_Reg_Sel(2)) AND (I_Data_4(0)))  
+            OR((I_Reg_Sel(0))AND (NOT(I_Reg_Sel(1))) AND (I_Reg_Sel(2)) AND (I_Data_5(0))) 
+            OR((NOT(I_Reg_Sel(0)))AND (I_Reg_Sel(1)) AND (I_Reg_Sel(2)) AND (I_Data_6(0))) 
+            OR((I_Reg_Sel(0))AND (I_Reg_Sel(1)) AND (I_Reg_Sel(2)) AND (I_Data_7(0)));  
+
+O_MUX_8_4(1)<=(NOT(I_Reg_Sel(0))AND (NOT(I_Reg_Sel(1))) AND (NOT(I_Reg_Sel(2))) AND (I_Data_0(1)))  
+            OR((I_Reg_Sel(0))AND (NOT(I_Reg_Sel(1))) AND (NOT(I_Reg_Sel(2))) AND (I_Data_1(1))) 
+            OR(NOT(I_Reg_Sel(0))AND I_Reg_Sel(1) AND (NOT(I_Reg_Sel(2))) AND (I_Data_2(1))) 
+            OR((I_Reg_Sel(0))AND I_Reg_Sel(1) AND (NOT(I_Reg_Sel(2))) AND (I_Data_3(1)))  
+            OR((NOT(I_Reg_Sel(0)))AND (NOT(I_Reg_Sel(1))) AND (I_Reg_Sel(2)) AND (I_Data_4(1)))  
+            OR((I_Reg_Sel(0))AND (NOT(I_Reg_Sel(1))) AND (I_Reg_Sel(2)) AND (I_Data_5(1))) 
+            OR((NOT(I_Reg_Sel(0)))AND (I_Reg_Sel(1)) AND (I_Reg_Sel(2)) AND (I_Data_6(1))) 
+            OR((I_Reg_Sel(0))AND (I_Reg_Sel(1)) AND (I_Reg_Sel(2)) AND (I_Data_7(1))); 
+
+O_MUX_8_4(2)<=(NOT(I_Reg_Sel(0))AND (NOT(I_Reg_Sel(1))) AND (NOT(I_Reg_Sel(2))) AND (I_Data_0(2)))  
+            OR((I_Reg_Sel(0))AND (NOT(I_Reg_Sel(1))) AND (NOT(I_Reg_Sel(2))) AND (I_Data_1(2))) 
+            OR(NOT(I_Reg_Sel(0))AND I_Reg_Sel(1) AND (NOT(I_Reg_Sel(2))) AND (I_Data_2(2))) 
+            OR((I_Reg_Sel(0))AND I_Reg_Sel(1) AND (NOT(I_Reg_Sel(2))) AND (I_Data_3(2)))  
+            OR((NOT(I_Reg_Sel(0)))AND (NOT(I_Reg_Sel(1))) AND (I_Reg_Sel(2)) AND (I_Data_4(2)))  
+            OR((I_Reg_Sel(0))AND (NOT(I_Reg_Sel(1))) AND (I_Reg_Sel(2)) AND (I_Data_5(2))) 
+            OR((NOT(I_Reg_Sel(0)))AND (I_Reg_Sel(1)) AND (I_Reg_Sel(2)) AND (I_Data_6(2))) 
+            OR((I_Reg_Sel(0))AND (I_Reg_Sel(1)) AND (I_Reg_Sel(2)) AND (I_Data_7(2))); 
+
+O_MUX_8_4(3)<=(NOT(I_Reg_Sel(0))AND (NOT(I_Reg_Sel(1))) AND (NOT(I_Reg_Sel(2))) AND (I_Data_0(3)))  
+            OR((I_Reg_Sel(0))AND (NOT(I_Reg_Sel(1))) AND (NOT(I_Reg_Sel(2))) AND (I_Data_1(3))) 
+            OR(NOT(I_Reg_Sel(0))AND I_Reg_Sel(1) AND (NOT(I_Reg_Sel(2))) AND (I_Data_2(3))) 
+            OR((I_Reg_Sel(0))AND I_Reg_Sel(1) AND (NOT(I_Reg_Sel(2))) AND (I_Data_3(3)))  
+            OR((NOT(I_Reg_Sel(0)))AND (NOT(I_Reg_Sel(1))) AND (I_Reg_Sel(2)) AND (I_Data_4(3)))  
+            OR((I_Reg_Sel(0))AND (NOT(I_Reg_Sel(1))) AND (I_Reg_Sel(2)) AND (I_Data_5(3))) 
+            OR((NOT(I_Reg_Sel(0)))AND (I_Reg_Sel(1)) AND (I_Reg_Sel(2)) AND (I_Data_6(3))) 
+            OR((I_Reg_Sel(0))AND (I_Reg_Sel(1)) AND (I_Reg_Sel(2)) AND (I_Data_7(3))); 
 end Behavioral;

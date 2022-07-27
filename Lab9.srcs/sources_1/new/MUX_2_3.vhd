@@ -42,12 +42,7 @@ architecture Behavioral of MUX_2_3 is
 --when jump flag is 0 output is jump adder
 --when jum flag is 1 output is output from 3 bit adder
 begin
-    process(I_Jump_Flag) is
-    begin
-        if I_Jump_Flag='1' then
-            O_MUX_2_3<=I_Adder_3;
-        else
-            O_MUX_2_3<=I_Jump_Addr;
-        end if;
-    end process;
+    O_MUX_2_3(0) <= (NOT(I_Jump_Flag) AND I_Adder_3(0)) OR (I_Jump_Flag AND I_Jump_Addr(0));
+    O_MUX_2_3(1) <= (NOT(I_Jump_Flag) AND I_Adder_3(1)) OR (I_Jump_Flag AND I_Jump_Addr(1));
+    O_MUX_2_3(2) <= (NOT(I_Jump_Flag) AND I_Adder_3(2)) OR (I_Jump_Flag AND I_Jump_Addr(2));
 end Behavioral;

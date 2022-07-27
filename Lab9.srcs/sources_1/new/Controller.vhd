@@ -63,7 +63,7 @@ begin
         );
 
     O_EN_Ins <= NOT(Q0) AND NOT(Q1);
-    temp <= Q0 AND Q1;
+    temp <= NOT(Q0) AND Q1;
     O_EN_Store <= temp;
     O_EN_PC <= temp;
 

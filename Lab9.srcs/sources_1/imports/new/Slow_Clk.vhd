@@ -45,7 +45,7 @@ begin
 process(Clk_in) begin
     if(rising_edge(Clk_in)) then
         count<= count +1;
-        if (count = 4) then
+        if (count = 1) then --2000000
             clk_status <= NOT(clk_status);
             Clk_out <= clk_status; --9.22
             count<= 1;

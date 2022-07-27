@@ -40,19 +40,19 @@ architecture Behavioral of Program_ROM is
 --start
 type rom_type is array (0 to 7) of std_logic_vector(11 downto 0);
  
- signal sevenSegment_ROM : rom_type := (
- "100000000000", -- 0    --to be changed
- "111100100000", --1
- "010010000000", --2
- "011000000000", --3
- "001100100000", --4
- "001001000000", --5
- "000001000000", --6
- "111100000000" --7
+ signal program_ROM : rom_type := (
+        "100010000011", --MOVI R1,3
+        "100100000001", --MOVI R2,1
+        "010100000000", --NEG R2
+        "001000010000", --ADD R4,R1
+        "000010100000", --ADD R1,R2
+        "110010000111", --JZR R1 7
+        "110000000011", --JZR R0 3
+        "001111000000"  --ADD R7,R4
  );
 
 begin
 
-O_Instruction <= sevenSegment_ROM(to_integer(unsigned(I_Mem_Sel)));
+O_Instruction <= program_ROM(to_integer(unsigned(I_Mem_Sel)));
 
 end Behavioral;

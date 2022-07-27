@@ -35,7 +35,8 @@ entity Reg_Bank is
     Port ( I_Clk : in STD_LOGIC;
            I_Reg_Enable : in STD_LOGIC_VECTOR (2 downto 0);
            I_Data_In : in STD_LOGIC_VECTOR (3 downto 0);
-           I_Reset : STD_LOGIC;
+           I_Reset : in STD_LOGIC;
+           I_EN_Store : in STD_LOGIC;
            O_Data_Out : out STD_LOGIC_VECTOR (31 downto 0));
 end Reg_Bank;
 
@@ -51,6 +52,8 @@ end component;
 component Reg
     Port ( D : in STD_LOGIC_VECTOR (3 downto 0);
            En : in STD_LOGIC;
+           En_Store : in STD_LOGIC;
+           Res : in STD_LOGIC;
            Clk : in STD_LOGIC;
            Q : out STD_LOGIC_VECTOR (3 downto 0));
 end component;
@@ -60,16 +63,13 @@ signal En : STD_LOGIC; --Not sure
 
 begin
 
-
-
 Decoder_3_to_8_0 : Decoder_3_to_8
     port map(
     I => I_Reg_Enable, --Not sure
-    EN => I_Clk, --Not sure
+    EN => I_EN_Store, --Not sure
     Y => Reg_sel
     );
  
-    
 O_Data_Out(31 downto 28) <= "0000";
 -- Reg_0 : Reg
 --    port map(
@@ -82,6 +82,8 @@ O_Data_Out(31 downto 28) <= "0000";
     port map(
               D => I_Data_In,
               En => Reg_Sel(1),
+              En_Store => I_EN_Store,
+              Res => I_Reset,
               Clk => I_Clk,
               Q => O_Data_Out(27 downto 24)
         );  
@@ -89,6 +91,8 @@ O_Data_Out(31 downto 28) <= "0000";
        port map(
                  D => I_Data_In,
                  En => Reg_Sel(2),
+                 En_Store => I_EN_Store,
+                 Res => I_Reset,
                  Clk => I_Clk,
                  Q => O_Data_Out(23 downto 20)
        );
@@ -96,6 +100,8 @@ O_Data_Out(31 downto 28) <= "0000";
       port map(
                 D => I_Data_In,
                 En => Reg_Sel(3),
+                En_Store => I_EN_Store,
+                Res => I_Reset,
                 Clk => I_Clk,
                 Q => O_Data_Out(19 downto 16)
       );  
@@ -103,6 +109,8 @@ O_Data_Out(31 downto 28) <= "0000";
     port map(
               D => I_Data_In,
               En => Reg_Sel(4),
+              En_Store => I_EN_Store,
+              Res => I_Reset,
               Clk => I_Clk,
               Q => O_Data_Out(15 downto 12)
     );
@@ -110,6 +118,8 @@ Reg_5 : Reg
       port map(
                 D => I_Data_In,
                 En => Reg_Sel(5),
+                En_Store => I_EN_Store,
+                Res => I_Reset,
                 Clk => I_Clk,
                 Q => O_Data_Out(11 downto 8)
       );
@@ -117,6 +127,8 @@ Reg_6 : Reg
     port map(
               D => I_Data_In,
               En => Reg_Sel(6),
+              En_Store => I_EN_Store,
+              Res => I_Reset,
               Clk => I_Clk,
               Q => O_Data_Out(7 downto 4)
         );
@@ -124,6 +136,8 @@ Reg_7 : Reg
       port map(
                 D => I_Data_In,
                 En => Reg_Sel(7),
+                En_Store => I_EN_Store,
+                Res => I_Reset,
                 Clk => I_Clk,
                 Q => O_Data_Out(3 downto 0)
       );
