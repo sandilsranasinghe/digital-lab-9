@@ -45,7 +45,7 @@ component MUX_8_4
             I_Data_5 : in STD_LOGIC_VECTOR (3 downto 0);
             I_Data_6 : in STD_LOGIC_VECTOR (3 downto 0);
             I_Data_7 : in STD_LOGIC_VECTOR (3 downto 0);
-            O_Reg_Sel : in STD_LOGIC_VECTOR (2 downto 0);
+            I_Reg_Sel : in STD_LOGIC_VECTOR (2 downto 0);
             O_MUX_8_4 : out STD_LOGIC_VECTOR (3 downto 0));
 end component;
 signal d0,d1,d2,d3,d4,d5,d6,d7,output:std_logic_vector(3 downto 0);
@@ -61,7 +61,7 @@ UUT: MUX_8_4
         I_Data_5=>d5,
         I_Data_6=>d6,
         I_Data_7=>d7,
-        O_Reg_Sel=>reg_sel,
+        I_Reg_Sel=>reg_sel,
         O_MUX_8_4=>output
     );
     process
