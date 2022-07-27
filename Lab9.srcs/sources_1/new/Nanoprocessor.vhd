@@ -57,38 +57,39 @@ component Instruction_Decoder
 end component;
 
 component Program_Counter 
-    Port ( Res : in STD_LOGIC;
-           Clk : in STD_LOGIC;
-           EN: in STD_LOGIC;
-           A_In : in STD_LOGIC_VECTOR (2 downto 0);
-           Y_Out : out STD_LOGIC_VECTOR (2 downto 0));
+    Port ( I_Res : in STD_LOGIC;
+           I_Clk : in STD_LOGIC;
+           I_EN_PC: in STD_LOGIC;
+           I_A_In : in STD_LOGIC_VECTOR (2 downto 0);
+           O_Mem_Sel : out STD_LOGIC_VECTOR (2 downto 0));
 end component;
 
 component Program_ROM 
-    Port ( Mem_Sel : in STD_LOGIC_VECTOR (2 downto 0);
-           Instruction : out STD_LOGIC_VECTOR (11 downto 0));
+    Port ( I_Mem_Sel : in STD_LOGIC_VECTOR (2 downto 0);
+           O_Instruction : out STD_LOGIC_VECTOR (11 downto 0));
 end component;
 
 component Reg_Bank 
-    Port ( Clk : in STD_LOGIC;
-           Reg_Enable : in STD_LOGIC_VECTOR (2 downto 0);
-           Data_In : in STD_LOGIC_VECTOR (3 downto 0);
-           Data_Out : out STD_LOGIC_VECTOR (31 downto 0));
+    Port ( I_Clk : in STD_LOGIC;
+           I_Reg_Enable : in STD_LOGIC_VECTOR (2 downto 0);
+           I_Data_In : in STD_LOGIC_VECTOR (3 downto 0);
+           I_Reset : STD_LOGIC;
+           O_Data_Out : out STD_LOGIC_VECTOR (31 downto 0));
 end component;
 
 component Adder_3
-    Port ( A_In : in STD_LOGIC_VECTOR (2 downto 0);
-           B_In : in STD_LOGIC_VECTOR (2 downto 0);
-           S_Out : out STD_LOGIC_VECTOR (2 downto 0));
+    Port ( I_A : in STD_LOGIC_VECTOR (2 downto 0);
+           I_B : in STD_LOGIC_VECTOR (2 downto 0);
+           O_S_Out : out STD_LOGIC_VECTOR (2 downto 0));
 end component;
 
 component Add_Sub_4 
-    Port ( A_In : in STD_LOGIC_VECTOR (3 downto 0);
-           B_In : in STD_LOGIC_VECTOR (3 downto 0);
-           Add_Sub_Sel : in STD_LOGIC;
-           S_Out : out STD_LOGIC_VECTOR (3 downto 0);
-           Overflow : out STD_LOGIC;
-           Zero : out STD_LOGIC);
+    Port ( I_A : in STD_LOGIC_VECTOR (3 downto 0);
+           I_B : in STD_LOGIC_VECTOR (3 downto 0);
+           I_Add_Sub_Sel : in STD_LOGIC;
+           O_S_Out : out STD_LOGIC_VECTOR (3 downto 0);
+           O_Overflow : out STD_LOGIC;
+           O_Zero : out STD_LOGIC);
 end component;
 
 component MUX_8_4
@@ -113,8 +114,78 @@ component MUX_2_3
            O_MUX_2_3 : out STD_LOGIC_VECTOR (2 downto 0));
 end component;
 
+signal EN_PC : STD_LOGIC;
 
 begin
+
+Instruction_Decoder_0 : Instruction_Decoder 
+    Port map ( I_Instruction => ,
+           I_Jump_Check => ,
+           I_Clk => Clk,
+           I_Reset=> Res,
+           O_Reg_Enable => ,
+           O_Reg_Sel_A => ,
+           O_Reg_Sel_B => ,
+           O_EN_PC => EN_PC,
+           O_EN_Store => ,
+           O_Add_Sub_Sel => ,
+           O_Jump_Flag => ,
+           O_Jump_Addr => ,
+           O_Load_Sel => ,
+           O_Imm_Val => 
+);
+
+Program_Counter_0 : Program_Counter
+    port map(
+               I_Res  => Res,
+               I_Clk  => Clk,
+               I_EN_PC => EN_PC,
+               I_A_In  => ,
+               O_Y_Out  => 
+    );
+
+Program_ROM _0 : Program_ROM 
+    Port map( 
+        I_Mem_Sel => ,
+        O_Instruction => 
+);
+
+Reg_Bank_0 : Reg_Bank 
+    Port ( Clk => Clk,
+           Reg_Enable => ,
+           Data_In => ,
+           Data_Out => ,
+           );
+
+Adder_3_0 : Adder_3
+    Port ( I_A => ,
+           I_B => ,
+           O_S_Out => ,
+           );
+
+Add_Sub_4_0 : Add_Sub_4 
+    Port ( I_A=> ,
+           I_B => ,
+           I_Add_Sub_Sel => ,
+           O_S_Out => ,
+           O_Overflow => ,
+           O_Zero => 
+        );
+
+MUX_8_4_0 : MUX_8_4
+    Port ( Data_In => ,
+           Sel => ,
+           EN => ,
+           Y_Out => ,
+           );
+
+MUX_8_4_1 : MUX_8_4
+    Port ( Data_In => ,
+           Sel => ,
+           EN => ,
+           Y_Out => ,
+           );
+
 
 
 end Behavioral;
