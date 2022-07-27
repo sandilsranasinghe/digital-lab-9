@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TB_nanoprocessor_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TB_nanoprocessor" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1000000001fs"></ZoomEndTime>
+      <Cursor1Time time="1000000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="147"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="42" />
+   <wvobject fp_name="/TB_nanoprocessor/S_Clk" type="logic">
+      <obj_property name="ElementShortName">S_Clk</obj_property>
+      <obj_property name="ObjectShortName">S_Clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/S_Res" type="logic">
+      <obj_property name="ElementShortName">S_Res</obj_property>
+      <obj_property name="ObjectShortName">S_Res</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/S_Overflow_led" type="logic">
+      <obj_property name="ElementShortName">S_Overflow_led</obj_property>
+      <obj_property name="ObjectShortName">S_Overflow_led</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/S_Zero_led" type="logic">
+      <obj_property name="ElementShortName">S_Zero_led</obj_property>
+      <obj_property name="ObjectShortName">S_Zero_led</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/S_Reg_1" type="array">
+      <obj_property name="ElementShortName">S_Reg_1[3:0]</obj_property>
+      <obj_property name="ObjectShortName">S_Reg_1[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Reg_Bank_0/I_Clk" type="logic">
+      <obj_property name="ElementShortName">I_Clk</obj_property>
+      <obj_property name="ObjectShortName">I_Clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Reg_Bank_0/I_Reg_Enable" type="array">
+      <obj_property name="ElementShortName">I_Reg_Enable[2:0]</obj_property>
+      <obj_property name="ObjectShortName">I_Reg_Enable[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Reg_Bank_0/I_Data_In" type="array">
+      <obj_property name="ElementShortName">I_Data_In[3:0]</obj_property>
+      <obj_property name="ObjectShortName">I_Data_In[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Reg_Bank_0/I_Reset" type="logic">
+      <obj_property name="ElementShortName">I_Reset</obj_property>
+      <obj_property name="ObjectShortName">I_Reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Reg_Bank_0/I_EN_Store" type="logic">
+      <obj_property name="ElementShortName">I_EN_Store</obj_property>
+      <obj_property name="ObjectShortName">I_EN_Store</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Reg_Bank_0/O_Data_Out" type="array">
+      <obj_property name="ElementShortName">O_Data_Out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">O_Data_Out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Reg_Bank_0/Reg_Sel" type="array">
+      <obj_property name="ElementShortName">Reg_Sel[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg_Sel[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Reg_Bank_0/En" type="logic">
+      <obj_property name="ElementShortName">En</obj_property>
+      <obj_property name="ObjectShortName">En</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Instruction_Decoder_0/I_Instruction" type="array">
+      <obj_property name="ElementShortName">I_Instruction[11:0]</obj_property>
+      <obj_property name="ObjectShortName">I_Instruction[11:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Instruction_Decoder_0/I_Jump_Check" type="array">
+      <obj_property name="ElementShortName">I_Jump_Check[3:0]</obj_property>
+      <obj_property name="ObjectShortName">I_Jump_Check[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Instruction_Decoder_0/I_Clk" type="logic">
+      <obj_property name="ElementShortName">I_Clk</obj_property>
+      <obj_property name="ObjectShortName">I_Clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Instruction_Decoder_0/I_Reset" type="logic">
+      <obj_property name="ElementShortName">I_Reset</obj_property>
+      <obj_property name="ObjectShortName">I_Reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Instruction_Decoder_0/O_Reg_Enable" type="array">
+      <obj_property name="ElementShortName">O_Reg_Enable[2:0]</obj_property>
+      <obj_property name="ObjectShortName">O_Reg_Enable[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Instruction_Decoder_0/O_Reg_Sel_A" type="array">
+      <obj_property name="ElementShortName">O_Reg_Sel_A[2:0]</obj_property>
+      <obj_property name="ObjectShortName">O_Reg_Sel_A[2:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Instruction_Decoder_0/O_Reg_Sel_B" type="array">
+      <obj_property name="ElementShortName">O_Reg_Sel_B[2:0]</obj_property>
+      <obj_property name="ObjectShortName">O_Reg_Sel_B[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Instruction_Decoder_0/O_EN_PC" type="logic">
+      <obj_property name="ElementShortName">O_EN_PC</obj_property>
+      <obj_property name="ObjectShortName">O_EN_PC</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Instruction_Decoder_0/O_EN_Store" type="logic">
+      <obj_property name="ElementShortName">O_EN_Store</obj_property>
+      <obj_property name="ObjectShortName">O_EN_Store</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Instruction_Decoder_0/O_Add_Sub_Sel" type="logic">
+      <obj_property name="ElementShortName">O_Add_Sub_Sel</obj_property>
+      <obj_property name="ObjectShortName">O_Add_Sub_Sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Instruction_Decoder_0/O_Jump_Flag" type="logic">
+      <obj_property name="ElementShortName">O_Jump_Flag</obj_property>
+      <obj_property name="ObjectShortName">O_Jump_Flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Instruction_Decoder_0/O_Jump_Addr" type="array">
+      <obj_property name="ElementShortName">O_Jump_Addr[2:0]</obj_property>
+      <obj_property name="ObjectShortName">O_Jump_Addr[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Instruction_Decoder_0/O_Load_Sel" type="logic">
+      <obj_property name="ElementShortName">O_Load_Sel</obj_property>
+      <obj_property name="ObjectShortName">O_Load_Sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Instruction_Decoder_0/O_Imm_Val" type="array">
+      <obj_property name="ElementShortName">O_Imm_Val[3:0]</obj_property>
+      <obj_property name="ObjectShortName">O_Imm_Val[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Instruction_Decoder_0/EN_Ins" type="logic">
+      <obj_property name="ElementShortName">EN_Ins</obj_property>
+      <obj_property name="ObjectShortName">EN_Ins</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Instruction_Decoder_0/instruction" type="array">
+      <obj_property name="ElementShortName">instruction[11:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction[11:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Program_Counter_0/I_Res" type="logic">
+      <obj_property name="ElementShortName">I_Res</obj_property>
+      <obj_property name="ObjectShortName">I_Res</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Program_Counter_0/I_Clk" type="logic">
+      <obj_property name="ElementShortName">I_Clk</obj_property>
+      <obj_property name="ObjectShortName">I_Clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Program_Counter_0/I_EN_PC" type="logic">
+      <obj_property name="ElementShortName">I_EN_PC</obj_property>
+      <obj_property name="ObjectShortName">I_EN_PC</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Program_Counter_0/I_A_In" type="array">
+      <obj_property name="ElementShortName">I_A_In[2:0]</obj_property>
+      <obj_property name="ObjectShortName">I_A_In[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Program_Counter_0/O_Mem_Sel" type="array">
+      <obj_property name="ElementShortName">O_Mem_Sel[2:0]</obj_property>
+      <obj_property name="ObjectShortName">O_Mem_Sel[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Program_Counter_0/D0" type="logic">
+      <obj_property name="ElementShortName">D0</obj_property>
+      <obj_property name="ObjectShortName">D0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Program_Counter_0/D1" type="logic">
+      <obj_property name="ElementShortName">D1</obj_property>
+      <obj_property name="ObjectShortName">D1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Program_Counter_0/D2" type="logic">
+      <obj_property name="ElementShortName">D2</obj_property>
+      <obj_property name="ObjectShortName">D2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Program_Counter_0/yout" type="array">
+      <obj_property name="ElementShortName">yout[2:0]</obj_property>
+      <obj_property name="ObjectShortName">yout[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Adder_3_0/I_A" type="array">
+      <obj_property name="ElementShortName">I_A[2:0]</obj_property>
+      <obj_property name="ObjectShortName">I_A[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Adder_3_0/I_B" type="array">
+      <obj_property name="ElementShortName">I_B[2:0]</obj_property>
+      <obj_property name="ObjectShortName">I_B[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Adder_3_0/O_S_Out" type="array">
+      <obj_property name="ElementShortName">O_S_Out[2:0]</obj_property>
+      <obj_property name="ObjectShortName">O_S_Out[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_nanoprocessor/UUT/Adder_3_0/FA_C" type="array">
+      <obj_property name="ElementShortName">FA_C[2:0]</obj_property>
+      <obj_property name="ObjectShortName">FA_C[2:0]</obj_property>
+   </wvobject>
+</wave_config>

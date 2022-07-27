@@ -77,22 +77,21 @@ begin
                 );     
 process(I_Clk)
     begin   
-    if (I_EN_PC='1') then 
-        if(rising_edge(I_Clk)) then
-            
+    
+    
             if I_Res = '1' then
             O_Mem_Sel <= "000";
-            
             else    
-            D0 <= I_A_In(0);
-            D1 <=  I_A_In(1);
-            D2 <= I_A_In(2);            
-            
+                if (I_EN_PC='1') then 
+                    D0 <= I_A_In(0);
+                    D1 <=  I_A_In(1);
+                    D2 <= I_A_In(2);
+                end if; 
             O_Mem_Sel <= yout;
          
-            end if;  
-        end if;   
-    end if;
+            
+            end if;   
+    
 end process;  
 --to here
 end Behavioral;

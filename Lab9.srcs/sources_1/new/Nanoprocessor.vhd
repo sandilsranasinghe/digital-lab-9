@@ -34,7 +34,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity Nanoprocessor is
     Port ( Clk : in STD_LOGIC;
            Res : in STD_LOGIC;
-           LEDs : out STD_LOGIC_VECTOR (1 downto 0));
+           Overflow_led : out STD_LOGIC;
+           Zero_led : out STD_LOGIC;
+           Reg_1:out std_logic_vector(3 downto 0));
 end Nanoprocessor;
 
 architecture Behavioral of Nanoprocessor is
@@ -106,6 +108,11 @@ component MUX_8_4
             O_MUX_8_4 : out STD_LOGIC_VECTOR (3 downto 0));
 end component;
 
+component Slow_Clk
+ Port ( Clk_in : in STD_LOGIC;
+          Clk_out : out STD_LOGIC);
+end component;
+
 component MUX_2_4
      Port ( I_Imm_Val : in STD_LOGIC_VECTOR (3 downto 0);
             I_Adder_4 : in STD_LOGIC_VECTOR (3 downto 0);
@@ -121,7 +128,7 @@ component MUX_2_3
            );
 end component;
 
-signal EN_PC, Add_Sub_Sel, jmpflg, Load_Sel, EN_Store: STD_LOGIC;
+signal EN_PC, Add_Sub_Sel, jmpflg, Load_Sel, EN_Store,S_Clk: STD_LOGIC;
 signal Data_Out : STD_LOGIC_VECTOR(31 downto 0);
 signal Mem_Sel, Mux_2_3_out,Reg_Sel_A, Reg_Sel_B,jmpaddr: STD_LOGIC_VECTOR(2 downto 0);
 signal Mux_8_4_A_out, Mux_8_4_B_out : STD_LOGIC_VECTOR(3 downto 0);
@@ -133,11 +140,15 @@ signal Instruction : STD_LOGIC_VECTOR(11 downto 0);
 signal bit_3_out : STD_LOGIC_VECTOR(2 downto 0);
 
 begin
-
+Slow_Clk_0:Slow_Clk
+port map(   Clk_in=>Clk,
+            Clk_out=>S_Clk
+            );
+            
 Instruction_Decoder_0 : Instruction_Decoder 
     Port map ( I_Instruction => Instruction,
            I_Jump_Check => Mux_8_4_A_out,
-           I_Clk => Clk,
+           I_Clk => S_Clk,
            I_Reset=> Res,
            O_Reg_Enable => Reg_Enable,
            O_Reg_Sel_A => Reg_Sel_A,
@@ -154,7 +165,7 @@ Instruction_Decoder_0 : Instruction_Decoder
 Program_Counter_0 : Program_Counter
     port map(
                I_Res  => Res,
-               I_Clk  => Clk,
+               I_Clk  => S_Clk,
                I_EN_PC => EN_PC,
                I_A_In  => Mux_2_3_out,
                O_Mem_Sel  => Mem_Sel
@@ -168,7 +179,7 @@ Program_ROM_0 : Program_ROM
 
 Reg_Bank_0 : Reg_Bank 
     Port map (
-           I_Clk => Clk,
+           I_Clk => S_Clk,
            I_Reg_Enable => Reg_Enable,
            I_Data_In => Data_In,
            I_EN_Store => EN_store,
@@ -187,8 +198,8 @@ Add_Sub_4_0 : Add_Sub_4
            I_B => Mux_8_4_B_out,
            I_Add_Sub_Sel => Add_Sub_Sel,
            O_S_Out => Adder_4,
-           O_Overflow => LEDs(1),
-           O_Zero => LEDs(0)
+           O_Overflow => Overflow_led,
+           O_Zero => Zero_led
         );
 
 MUX_8_4_A : MUX_8_4
@@ -231,4 +242,5 @@ MUX_2_3_0 : MUX_2_3
            O_MUX_2_3 => Mux_2_3_out  
            );
 
+Reg_1<=Data_Out(27 downto 24);
 end Behavioral;
