@@ -73,7 +73,8 @@ component Reg_Bank
     Port ( I_Clk : in STD_LOGIC;
            I_Reg_Enable : in STD_LOGIC_VECTOR (2 downto 0);
            I_Data_In : in STD_LOGIC_VECTOR (3 downto 0);
-           I_Reset : STD_LOGIC;
+           I_Reset : in STD_LOGIC;
+           I_EN_Store : in STD_LOGIC;
            O_Data_Out : out STD_LOGIC_VECTOR (31 downto 0));
 end component;
 
@@ -120,27 +121,29 @@ component MUX_2_3
            );
 end component;
 
-signal EN_PC, Add_Sub_Sel, jmpflg, Load_Sel: STD_LOGIC;
+signal EN_PC, Add_Sub_Sel, jmpflg, Load_Sel, EN_Store: STD_LOGIC;
 signal Data_Out : STD_LOGIC_VECTOR(31 downto 0);
-signal Mem_Sel,3bit_out,2_3_out,Reg_Sel_A, Reg_Sel_B,jmpaddr: STD_LOGIC_VECTOR(2 downto 0)
-signal 8_4_MuxA_out, 8_4_MuxB_out : STD_LOGIC_VECTOR(3 downto 0);
+signal Mem_Sel, Mux_2_3_out,Reg_Sel_A, Reg_Sel_B,jmpaddr: STD_LOGIC_VECTOR(2 downto 0);
+signal Mux_8_4_A_out, Mux_8_4_B_out : STD_LOGIC_VECTOR(3 downto 0);
 signal Imm_Val : STD_LOGIC_VECTOR (3 downto 0);
 signal Adder_4 : STD_LOGIC_VECTOR(3 downto 0);
-signal Data_In : STD_LOGIC_VECTOR(3 donwto 0);
+signal Data_In : STD_LOGIC_VECTOR(3 downto 0);
 signal Reg_Enable : STD_LOGIC_VECTOR(2 downto 0);
 signal Instruction : STD_LOGIC_VECTOR(11 downto 0);
+signal bit_3_out : STD_LOGIC_VECTOR(2 downto 0);
+
 begin
 
 Instruction_Decoder_0 : Instruction_Decoder 
     Port map ( I_Instruction => Instruction,
-           I_Jump_Check => 8_4_MuxA_out,
+           I_Jump_Check => Mux_8_4_A_out,
            I_Clk => Clk,
            I_Reset=> Res,
            O_Reg_Enable => Reg_Enable,
            O_Reg_Sel_A => Reg_Sel_A,
            O_Reg_Sel_B => Reg_Sel_B,
            O_EN_PC => EN_PC,
-           O_EN_Store => ,
+           O_EN_Store => EN_Store,
            O_Add_Sub_Sel => Add_Sub_Sel,
            O_Jump_Flag => jmpflg,
            O_Jump_Addr =>jmpaddr ,
@@ -153,36 +156,39 @@ Program_Counter_0 : Program_Counter
                I_Res  => Res,
                I_Clk  => Clk,
                I_EN_PC => EN_PC,
-               I_A_In  => 2_3_out,
-               O_Y_Out  => Mem_Sel
+               I_A_In  => Mux_2_3_out,
+               O_Mem_Sel  => Mem_Sel
     );
 
-Program_ROM _0 : Program_ROM 
+Program_ROM_0 : Program_ROM 
     Port map( 
         I_Mem_Sel => Mem_Sel,
         O_Instruction => Instruction
 );
 
 Reg_Bank_0 : Reg_Bank 
-    Port map (I_Clk => Clk,
+    Port map (
+           I_Clk => Clk,
            I_Reg_Enable => Reg_Enable,
            I_Data_In => Data_In,
+           I_EN_Store => EN_store,
            O_Data_Out => Data_Out,
+           I_Reset => Res
            );
 
 Adder_3_0 : Adder_3
     Port map(I_A => Mem_Sel,
            I_B => "001",
-           O_S_Out => 3bit_out,
+           O_S_Out => bit_3_out
            );
 
 Add_Sub_4_0 : Add_Sub_4 
-    Port map( I_A=> 8_4_MuxA_out,
-           I_B => 8_4_MuxB_out,
+    Port map( I_A=> Mux_8_4_A_out,
+           I_B => Mux_8_4_B_out,
            I_Add_Sub_Sel => Add_Sub_Sel,
            O_S_Out => Adder_4,
            O_Overflow => LEDs(1),
-           O_Zero => LEDs(0),
+           O_Zero => LEDs(0)
         );
 
 MUX_8_4_A : MUX_8_4
@@ -195,7 +201,7 @@ MUX_8_4_A : MUX_8_4
             I_Data_6 => Data_Out(7 downto 4),
             I_Data_7 => Data_Out(3 downto 0),
             I_Reg_Sel => Reg_Sel_A,
-            O_MUX_8_4 => 8_4_MuxA_out
+            O_MUX_8_4 => Mux_8_4_A_out
             );
 
 MUX_8_4_B : MUX_8_4
@@ -208,7 +214,7 @@ MUX_8_4_B : MUX_8_4
             I_Data_6 => Data_Out(7 downto 4),
             I_Data_7 => Data_Out(3 downto 0),
             I_Reg_Sel => Reg_Sel_B,
-            O_MUX_8_4 => 8_4_MuxB_out
+            O_MUX_8_4 => Mux_8_4_B_out
             );
 
 MUX_2_4_0 : MUX_2_4
@@ -219,10 +225,10 @@ MUX_2_4_0 : MUX_2_4
             );
             
 MUX_2_3_0 : MUX_2_3
-    Port map( I_Adder_3 => 3bit_out, 
+    Port map( I_Adder_3 => bit_3_out, 
            I_Jump_Addr=> jmpaddr , 
            I_Jump_Flag => jmpflg, 
-           O_MUX_2_3 => 2_3_out  
+           O_MUX_2_3 => Mux_2_3_out  
            );
 
 end Behavioral;

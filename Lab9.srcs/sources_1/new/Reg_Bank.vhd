@@ -35,7 +35,8 @@ entity Reg_Bank is
     Port ( I_Clk : in STD_LOGIC;
            I_Reg_Enable : in STD_LOGIC_VECTOR (2 downto 0);
            I_Data_In : in STD_LOGIC_VECTOR (3 downto 0);
-           I_Reset : STD_LOGIC;
+           I_Reset : in STD_LOGIC;
+           I_EN_Store : in STD_LOGIC;
            O_Data_Out : out STD_LOGIC_VECTOR (31 downto 0));
 end Reg_Bank;
 
@@ -60,16 +61,13 @@ signal En : STD_LOGIC; --Not sure
 
 begin
 
-
-
 Decoder_3_to_8_0 : Decoder_3_to_8
     port map(
     I => I_Reg_Enable, --Not sure
-    EN => I_Clk, --Not sure
+    EN => I_EN_Store, --Not sure
     Y => Reg_sel
     );
  
-    
 O_Data_Out(31 downto 28) <= "0000";
 -- Reg_0 : Reg
 --    port map(
