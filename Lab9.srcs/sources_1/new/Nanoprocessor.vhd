@@ -106,6 +106,13 @@ component MUX_2_4
            Y_Out : out STD_LOGIC_VECTOR (3 downto 0));
 end component;
 
+component MUX_2_3
+    Port ( I_Adder_3 : in STD_LOGIC_VECTOR (2 downto 0);
+           I_Jump_Addr : in STD_LOGIC_VECTOR (2 downto 0);
+           I_Jump_Flag : in STD_LOGIC;
+           O_MUX_2_3 : out STD_LOGIC_VECTOR (2 downto 0));
+end component;
+
 
 begin
 
