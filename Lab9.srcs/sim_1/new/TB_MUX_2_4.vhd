@@ -40,7 +40,7 @@ component MUX_2_4
     Port ( I_Imm_Val : in STD_LOGIC_VECTOR (3 downto 0);
             I_Adder_4 : in STD_LOGIC_VECTOR (3 downto 0);
             I_Load_Sel : in STD_LOGIC;
-            O_MUX_2_3 : out STD_LOGIC_VECTOR (3 downto 0));
+            O_MUX_2_4 : out STD_LOGIC_VECTOR (3 downto 0));
 end component;
 signal value,adder,output:std_logic_vector(3 downto 0);
 signal load_select:std_logic;
@@ -50,7 +50,7 @@ UUT: MUX_2_4
         I_Imm_Val=>value,
         I_Adder_4=>adder,
         I_Load_Sel=>load_select,
-        O_MUX_2_3=>output
+        O_MUX_2_4=>output
     );
     process
     begin
