@@ -43,12 +43,12 @@ type rom_type is array (0 to 7) of std_logic_vector(11 downto 0);
  signal program_ROM : rom_type := (
         "100010000011", --MOVI R1,3
         "100100000001", --MOVI R2,1
+        "101110000000", --MOVI R7,0
         "010100000000", --NEG R2
-        "001000010000", --ADD R4,R1
+        "001110010000", --ADD R7,R1
         "000010100000", --ADD R1,R2
-        "110010000111", --JZR R1 7
-        "110000000011", --JZR R0 3
-        "001111000000"  --ADD R7,R4
+        "110010000000", --JZR R1 0
+        "110000000100" --JZR R0 4
  );
 
 begin
