@@ -68,6 +68,7 @@ architecture Behavioral of Instruction_Decoder is
         );
     end component;
     signal EN_Ins : STD_LOGIC;
+    signal EN_Store : STD_LOGIC;
     signal instruction : STD_LOGIC_VECTOR (11 downto 0);
 
 begin
@@ -77,7 +78,7 @@ begin
             I_Clk => I_Clk,
             I_Reset => I_Reset,
             O_EN_Ins => EN_Ins,
-            O_EN_Store => O_EN_Store,
+            O_EN_Store => EN_Store,
             O_EN_PC => O_EN_PC
         );
 
@@ -119,7 +120,7 @@ begin
 
     O_Imm_Val <= instruction(3 downto 0);
 
-
+    O_EN_Store <= EN_Store AND NOT(instruction(11) AND instruction(10));
 
 
 end Behavioral;

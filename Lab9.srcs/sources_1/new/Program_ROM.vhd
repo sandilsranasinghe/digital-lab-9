@@ -40,17 +40,17 @@ architecture Behavioral of Program_ROM is
 --start
 type rom_type is array (0 to 7) of std_logic_vector(11 downto 0);
  
-signal program_ROM : rom_type := (
-       "100010000011", --MOVI R1,3
-       "100100000001", --MOVI R2,1
-       "010100000000", --NEG R2
-       "101000000001", --MOVI R4,1
-       "000011000000", --ADD R1,R4
-       "000101000000", --ADD R2,R4
-       "110100000011", --JZR R2 3
-       "001110010000"  --ADD R7,R1
-);
- 
+ signal program_ROM : rom_type := (
+        "100010000011", --MOVI R1,3
+        "100100000001", --MOVI R2,1
+        "010100000000", --NEG R2
+        "001000010000", --ADD R4,R1
+        "000010100000", --ADD R1,R2
+        "110010000111", --JZR R1 7
+        "110000000011", --JZR R0 3
+        "001111000000"  --ADD R7,R4
+ );
+
 begin
 
 O_Instruction <= program_ROM(to_integer(unsigned(I_Mem_Sel)));

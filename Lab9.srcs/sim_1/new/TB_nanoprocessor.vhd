@@ -69,7 +69,7 @@ UUT: Nanoprocessor
   process
   begin
   
-  wait for 3ns;
+  wait for 4ns;
   S_Clk <= not(S_Clk);
   
   end process;
