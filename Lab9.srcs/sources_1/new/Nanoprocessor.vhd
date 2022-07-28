@@ -37,6 +37,7 @@ entity Nanoprocessor is
            Overflow_led : out STD_LOGIC;
            Zero_led : out STD_LOGIC;
            Reg_7 : out std_logic_vector(3 downto 0);
+           Reg_1 : out std_logic_vector(3 downto 0);
            Seg7_Anode : out STD_LOGIC_VECTOR(3 downto 0);
            Seg7_Out : out STD_LOGIC_VECTOR(6 downto 0)
            );
@@ -261,6 +262,7 @@ MUX_2_3_0 : MUX_2_3
             );
 
 Reg_7<=Data_Out(3 downto 0);
+Reg_1<=Data_Out(27 downto 24);
 led_address <= Data_Out(3 downto 0);
 
 Seg7_Anode <= "1110";

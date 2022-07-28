@@ -11,14 +11,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1196374624fs"></ZoomEndTime>
+      <ZoomEndTime time="1000000001fs"></ZoomEndTime>
       <Cursor1Time time="652000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="127"></NameColumnWidth>
+      <NameColumnWidth column_width="123"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="66" />
+   <WVObjectSize size="63" />
    <wvobject fp_name="/TB_nanoprocessor/S_Clk" type="logic">
       <obj_property name="ElementShortName">S_Clk</obj_property>
       <obj_property name="ObjectShortName">S_Clk</obj_property>
@@ -34,10 +34,6 @@
    <wvobject fp_name="/TB_nanoprocessor/S_Zero_led" type="logic">
       <obj_property name="ElementShortName">S_Zero_led</obj_property>
       <obj_property name="ObjectShortName">S_Zero_led</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_nanoprocessor/S_Reg_1" type="array">
-      <obj_property name="ElementShortName">S_Reg_1[3:0]</obj_property>
-      <obj_property name="ObjectShortName">S_Reg_1[3:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/TB_nanoprocessor/UUT/Reg_Bank_0/I_Clk" type="logic">
       <obj_property name="ElementShortName">I_Clk</obj_property>
@@ -62,6 +58,7 @@
    <wvobject fp_name="/TB_nanoprocessor/UUT/Reg_Bank_0/O_Data_Out" type="array">
       <obj_property name="ElementShortName">O_Data_Out[31:0]</obj_property>
       <obj_property name="ObjectShortName">O_Data_Out[31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/TB_nanoprocessor/UUT/Reg_Bank_0/Reg_Sel" type="array">
       <obj_property name="ElementShortName">Reg_Sel[7:0]</obj_property>
@@ -285,13 +282,5 @@
    <wvobject fp_name="/TB_nanoprocessor/UUT/MUX_2_4_0/O_MUX_2_4" type="array">
       <obj_property name="ElementShortName">O_MUX_2_4[3:0]</obj_property>
       <obj_property name="ObjectShortName">O_MUX_2_4[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_nanoprocessor/UUT/Led_Anode" type="array">
-      <obj_property name="ElementShortName">Led_Anode[3:0]</obj_property>
-      <obj_property name="ObjectShortName">Led_Anode[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_nanoprocessor/UUT/Led_Out" type="array">
-      <obj_property name="ElementShortName">Led_Out[6:0]</obj_property>
-      <obj_property name="ObjectShortName">Led_Out[6:0]</obj_property>
    </wvobject>
 </wave_config>
