@@ -42,9 +42,9 @@ component Nanoprocessor
                Res : in STD_LOGIC;
                Overflow_led : out STD_LOGIC;
                Zero_led : out STD_LOGIC;
-               Reg_1:out std_logic_vector(3 downto 0);
-               Led_Anode : out STD_LOGIC_VECTOR(3 downto 0);
-               Led_Out : out STD_LOGIC_VECTOR(6 downto 0)
+               Reg_7:out std_logic_vector(3 downto 0);
+               Seg7_Anode : out STD_LOGIC_VECTOR(3 downto 0);
+               Seg7_Out : out STD_LOGIC_VECTOR(6 downto 0)
               );
     end component;
 
@@ -52,7 +52,7 @@ signal  S_Clk : STD_LOGIC := '0';
 signal S_Res : STD_LOGIC;
 signal S_Overflow_led : STD_LOGIC;
 signal S_Zero_led : STD_LOGIC;
-signal S_Reg_1: std_logic_vector(3 downto 0);
+signal S_Reg_7: std_logic_vector(3 downto 0);
 
 begin
 
@@ -62,7 +62,7 @@ UUT: Nanoprocessor
                 Res => S_Res,
                 Overflow_led => S_Overflow_led,
                 Zero_led => S_Zero_led,
-                Reg_1 => S_Reg_1
+                Reg_7 => S_Reg_7
     );
     
   process
