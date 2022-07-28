@@ -68,7 +68,7 @@ UUT: Nanoprocessor
   process
   begin
   
-  wait for 4ns;
+  wait for 3ns;
   S_Clk <= not(S_Clk);
   
   end process;
@@ -76,10 +76,6 @@ UUT: Nanoprocessor
   process
   begin
   
-  S_Res <= '1';
-  wait for 50ns;
-  S_Res <= '0';
-  wait for 250ns;
   S_Res <= '1';
   wait for 50ns;
   S_Res <= '0';
