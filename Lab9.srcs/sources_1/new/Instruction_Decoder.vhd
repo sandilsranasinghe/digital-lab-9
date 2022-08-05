@@ -59,17 +59,8 @@ architecture Behavioral of Instruction_Decoder is
             O_EN_PC : out STD_LOGIC
         );
     end component;
-    component Register_12_Bit
-        Port ( 
-            I_Data : in STD_LOGIC_VECTOR (11 downto 0);
-            I_Enable : in STD_LOGIC;
-            I_Clk : in STD_LOGIC;
-            O_Q : out STD_LOGIC_VECTOR (11 downto 0)
-        );
-    end component;
     signal EN_Ins : STD_LOGIC;
     signal EN_Store : STD_LOGIC;
-    signal instruction : STD_LOGIC_VECTOR (11 downto 0);
 
 begin
 
@@ -82,28 +73,20 @@ begin
             O_EN_PC => O_EN_PC
         );
 
-    Instruction_Register : Register_12_Bit
-        PORT MAP (
-            I_Data => I_Instruction,
-            I_Enable => EN_Ins,
-            I_Clk => I_Clk,
-            O_Q => instruction
-        );
-
     -- load add/sub value only for ADD and NEG instructions
-    O_Load_Sel <= NOT(instruction(11)); 
+    O_Load_Sel <= NOT(I_Instruction(11)); 
 
     -- We set the register address to enable for register bank regardless of whether it's actually needed 
     -- for the instruction, since when it's needed it's always the same bit positions, and the controller
     -- handles whether we actually write the value to the register bank or not.
-    O_Reg_Enable <= instruction(9 downto 7); 
+    O_Reg_Enable <= I_Instruction(9 downto 7); 
 
     -- Similarly to the previous, we set the register addresses for A and B inputs of Add/Sub unit
-    O_Reg_Sel_A <= instruction(9 downto 7);
-    O_Reg_Sel_B <= instruction(6 downto 4);
+    O_Reg_Sel_A <= I_Instruction(9 downto 7);
+    O_Reg_Sel_B <= I_Instruction(6 downto 4);
 
     -- Again similarly we set the jump address
-    O_Jump_Addr <= instruction(2 downto 0);
+    O_Jump_Addr <= I_Instruction(2 downto 0);
 
     -- If relevant register value is "0000" set jump flag to 1
     O_Jump_Flag <= (
@@ -111,16 +94,16 @@ begin
         NOT(I_Jump_Check(2)) AND
         NOT(I_Jump_Check(1)) AND
         NOT(I_Jump_Check(0)) AND
-        instruction(11) AND
-        instruction(10)
+        I_Instruction(11) AND
+        I_Instruction(10)
     );
 
     -- this is set to 1 only for NEG operations
-    O_Add_Sub_Sel <= NOT(instruction(11)) AND instruction(10);
+    O_Add_Sub_Sel <= NOT(I_Instruction(11)) AND I_Instruction(10);
 
-    O_Imm_Val <= instruction(3 downto 0);
+    O_Imm_Val <= I_Instruction(3 downto 0);
 
-    O_EN_Store <= EN_Store AND NOT(instruction(11) AND instruction(10));
+    O_EN_Store <= EN_Store AND NOT(I_Instruction(11) AND I_Instruction(10));
 
 
 end Behavioral;

@@ -62,8 +62,8 @@ begin
             O_Q1 => Q1
         );
 
-    O_EN_Ins <= Q0 AND NOT(Q1);
-    O_EN_Store <= NOT(Q0) AND Q1;
+    O_EN_Ins <= NOT(Q0) AND NOT(Q1);
+    O_EN_Store <= Q0 AND NOT(Q1);
     O_EN_PC <= Q0 AND Q1;
 
 end Behavioral;
