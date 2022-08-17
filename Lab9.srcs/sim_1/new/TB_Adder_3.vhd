@@ -37,17 +37,18 @@ end TB_Adder_3;
 
 architecture Behavioral of TB_Adder_3 is
 component Adder_3
-Port(A_In : in STD_LOGIC_VECTOR (2 downto 0);
-     B_In : in STD_LOGIC_VECTOR (2 downto 0);
-     S_Out : out STD_LOGIC_VECTOR (2 downto 0));
+Port(I_A : in STD_LOGIC_VECTOR (2 downto 0);
+     I_B : in STD_LOGIC_VECTOR (2 downto 0);
+     O_S_Out : out STD_LOGIC_VECTOR (2 downto 0));
 end component;
 signal a,b,s:STD_LOGIC_VECTOR(2 downto 0);
 begin
 UUT: Adder_3
 Port map(
-A_In=>a,
-B_In=>b,
-S_Out=>s);
+I_A=>a,
+I_B=>b,
+O_S_Out=>s
+);
 
 process
 begin

@@ -40,7 +40,6 @@ architecture Behavioral of TB_Controller is
     component Controller 
         Port ( I_Clk : in STD_LOGIC;
             I_Reset : in STD_LOGIC;
-            O_EN_Ins : out STD_LOGIC;
             O_EN_Store : out STD_LOGIC;
             O_EN_PC : out STD_LOGIC);
     end component;
@@ -53,7 +52,6 @@ begin
         PORT MAP (
             I_Clk => Clk,
             I_Reset => Res,
-            O_EN_Ins => EN_Ins,
             O_EN_Store => EN_Store,
             O_EN_PC => EN_PC
         );
