@@ -34,7 +34,6 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity Controller is
     Port ( I_Clk : in STD_LOGIC;
            I_Reset : in STD_LOGIC;
-           O_EN_Ins : out STD_LOGIC;
            O_EN_Store : out STD_LOGIC;
            O_EN_PC : out STD_LOGIC);
 end Controller;
@@ -62,7 +61,6 @@ begin
             O_Q1 => Q1
         );
 
-    O_EN_Ins <= NOT(Q0) AND NOT(Q1);
     O_EN_Store <= Q0 AND NOT(Q1);
     O_EN_PC <= Q0 AND Q1;
 

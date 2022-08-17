@@ -54,7 +54,6 @@ architecture Behavioral of Instruction_Decoder is
         Port ( 
             I_Clk : in STD_LOGIC;
             I_Reset : in STD_LOGIC;
-            O_EN_Ins : out STD_LOGIC;
             O_EN_Store : out STD_LOGIC;
             O_EN_PC : out STD_LOGIC
         );
@@ -68,7 +67,6 @@ begin
         PORT MAP (
             I_Clk => I_Clk,
             I_Reset => I_Reset,
-            O_EN_Ins => EN_Ins,
             O_EN_Store => EN_Store,
             O_EN_PC => O_EN_PC
         );
